@@ -24,4 +24,8 @@ class Constants {
     static let STORYBOARD_NAME_MAIN = "Main"
     static let REGISTER_VIEW_CONTROLLER_NIB_IDENTIFIER = "RegisterViewController"
     
+    // MARK: Notification names
+    static let NOTIFICATION_DID_RECEIVE_LOGIN_DATA = "didReceiveLoginData"
+    static let NOTIFICATION_USER_INFO_KEY_ID = "id"
+    
 }

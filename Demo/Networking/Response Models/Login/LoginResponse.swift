@@ -18,7 +18,6 @@ struct LoginResponse : Codable {
         case data
     }
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
         ad = try Ad(from: decoder)
         data = try LoginData(from: decoder)
     }

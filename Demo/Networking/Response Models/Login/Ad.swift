@@ -14,7 +14,6 @@ struct Ad : Codable {
     let text : String?
     let url : String?
 
-
     enum CodingKeys: String, CodingKey {
         case company = "company"
         case text = "text"

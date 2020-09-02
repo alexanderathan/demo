@@ -23,7 +23,7 @@ enum APIRouter: TNRouterProtocol {
             return TNRouteConfiguration(method: .post, path: path("register"), params: ["email" : email, "password" : password], headers: nil, requestConfiguration: configuration)
         // MARK: - Login route
         case .login(id: let id):
-            return TNRouteConfiguration(method: .get, path: path("login"), params: ["id" : id], headers: nil, requestConfiguration: configuration)
+            return TNRouteConfiguration(method: .get, path: path("users"), params: ["id" : id], headers: nil, requestConfiguration: configuration)
         }
         
     }

@@ -26,6 +26,8 @@
 		FA0ADAA824FAFEAB0070CDBF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADAA724FAFEAB0070CDBF /* Constants.swift */; };
 		FA3BB26D24FB1AFE009B66AF /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BB26C24FB1AFE009B66AF /* ResponseError.swift */; };
 		FA3BB26F24FB1BC7009B66AF /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BB26E24FB1BC7009B66AF /* ErrorHandler.swift */; };
+		FA61A35724FFA9BB00BDAEF3 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61A35624FFA9BB00BDAEF3 /* FormValidation.swift */; };
+		FA61A35924FFCDEF00BDAEF3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61A35824FFCDEF00BDAEF3 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		FA0ADAA724FAFEAB0070CDBF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA3BB26C24FB1AFE009B66AF /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		FA3BB26E24FB1BC7009B66AF /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		FA61A35624FFA9BB00BDAEF3 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
+		FA61A35824FFCDEF00BDAEF3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		FA0ADA6C24F9803B0070CDBF /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				FA61A35524FFA9A900BDAEF3 /* Utils */,
 				FA0ADA8B24F9982D0070CDBF /* Networking */,
 				FA0ADAA024FAFBD20070CDBF /* View Controllers */,
 				FA0ADA6D24F9803B0070CDBF /* AppDelegate.swift */,
@@ -173,6 +178,15 @@
 				FA3BB26C24FB1AFE009B66AF /* ResponseError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		FA61A35524FFA9A900BDAEF3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA61A35624FFA9BB00BDAEF3 /* FormValidation.swift */,
+				FA61A35824FFCDEF00BDAEF3 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +318,8 @@
 				FA0ADA8624F9833A0070CDBF /* HomeViewController.swift in Sources */,
 				FA3BB26F24FB1BC7009B66AF /* ErrorHandler.swift in Sources */,
 				FA0ADA8D24F9983C0070CDBF /* Environment.swift in Sources */,
+				FA61A35924FFCDEF00BDAEF3 /* Extensions.swift in Sources */,
+				FA61A35724FFA9BB00BDAEF3 /* FormValidation.swift in Sources */,
 				FA3BB26D24FB1AFE009B66AF /* ResponseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

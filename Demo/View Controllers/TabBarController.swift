@@ -12,8 +12,8 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.items?[0].title = Constants.TAB_BAR_ITEM_FIRST_TITLE
-        self.tabBar.items?[1].title = Constants.TAB_BAR_ITEM_SECOND_TITLE
+        tabBar.items?[0].title = Constants.TAB_BAR_ITEM_FIRST_TITLE
+        tabBar.items?[1].title = Constants.TAB_BAR_ITEM_SECOND_TITLE
     }
 
 }

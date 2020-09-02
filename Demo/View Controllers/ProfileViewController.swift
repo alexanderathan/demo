@@ -26,6 +26,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveLoginData(_:)), name: .didReceiveLoginData, object: nil)
+    }
+    
+    @objc func didReceiveLoginData(_ notification: NSNotification) {
+        guard let id = notification.userInfo?[Constants.NOTIFICATION_USER_INFO_KEY_ID] as? String else { return }
+        login(userID: id)
     }
     
     func login(userID: String) {

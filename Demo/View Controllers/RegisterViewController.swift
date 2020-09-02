@@ -15,9 +15,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        guard let _username = usernameTextField.text,
-            let _password = passwordTextField.text else { return }
-        register(username: _username, password: _password)
+        validateAndRegister()
     }
     
     override func viewDidLoad() {
@@ -30,10 +28,34 @@ class RegisterViewController: UIViewController {
     // MARK: - Register Function
     func register(username: String, password: String) {
         registerHelper(email: username, password: password, onSuccess: { response in
-            print(response)
+            // Make sure that the id exists before moving further
+            guard let _id = response.id else { return }
+            // Converting to string
+            let idString = String(_id)
+            // Posting a notification with the id string in the notification user info. This is received by ProfileViewController.
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NOTIFICATION_DID_RECEIVE_LOGIN_DATA), object: nil, userInfo: [Constants.NOTIFICATION_USER_INFO_KEY_ID: idString])
+            self.dismiss(animated: true, completion: nil)
+            //print(response)
         }, onFailure: { error, data in
             print(error.localizedDescription ?? "Undefined error")
         })
     }
+    
+    // MARK: - Validate Text Fields Function
+    func validateAndRegister() {
+        do {
+            //Use the validators to validate the username and password
+            let email = try usernameTextField.validatedText(validationType: ValidatorType.email)
+            let password = try passwordTextField.validatedText(validationType: ValidatorType.password)
+            //Use the validated username and password and attempt to register
+            register(username: email, password: password)
+        } catch(let error) {
+            guard let _error = error as? ValidationError else { return }
+            print(_error.message)
+            // TODO: Show alert with the validation error
+            //showAlert(for: (error as! ValidationError).message)
+        }
+    }
+    
 
 }
