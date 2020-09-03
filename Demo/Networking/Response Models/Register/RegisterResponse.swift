@@ -17,10 +17,5 @@ struct RegisterResponse : Codable {
         case id = "id"
         case token = "token"
     }
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        token = try values.decodeIfPresent(String.self, forKey: .token)
-    }
 
 }

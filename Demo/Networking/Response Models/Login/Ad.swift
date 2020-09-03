@@ -19,11 +19,5 @@ struct Ad : Codable {
         case text = "text"
         case url = "url"
     }
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        company = try values.decodeIfPresent(String.self, forKey: .company)
-        text = try values.decodeIfPresent(String.self, forKey: .text)
-        url = try values.decodeIfPresent(String.self, forKey: .url)
-    }
 
 }

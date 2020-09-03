@@ -17,9 +17,5 @@ struct LoginResponse : Codable {
         case ad
         case data
     }
-    init(from decoder: Decoder) throws {
-        ad = try Ad(from: decoder)
-        data = try LoginData(from: decoder)
-    }
 
 }

@@ -24,13 +24,5 @@ struct LoginData : Codable {
         case id = "id"
         case lastName = "last_name"
     }
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
-        email = try values.decodeIfPresent(String.self, forKey: .email)
-        firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
-    }
 
 }

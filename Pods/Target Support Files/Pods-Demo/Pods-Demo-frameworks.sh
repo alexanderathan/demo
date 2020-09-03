@@ -198,12 +198,16 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TermiNetwork/TermiNetwork.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TermiNetwork/TermiNetwork.framework"
