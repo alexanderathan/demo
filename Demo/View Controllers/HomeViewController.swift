@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeMessageLabel.text = Constants.WELCOME_MESSAGE
+        welcomeMessageLabel.text = Constants.welcomeMessage
     }
 
 }

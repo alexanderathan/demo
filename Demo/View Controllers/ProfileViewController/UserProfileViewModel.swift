@@ -11,12 +11,11 @@ import UIKit
 import SDWebImage
 
 class UserProfileViewModel {
-    
+
     private let userProfileModel: LoginResponse
-    
     let fullName: String
     let profilePictureURL: URL!
-    
+
     init(model: LoginResponse) {
         userProfileModel = model
         let firstName = userProfileModel.data?.firstName ?? ""
@@ -24,16 +23,17 @@ class UserProfileViewModel {
         let firstLastNameNoEmpty = [firstName, lastName].filter({ !$0.isEmpty })
         self.fullName = firstLastNameNoEmpty.joined(separator: " ")
         let profilePictureStringUrl = userProfileModel.data?.avatar ?? ""
-        let _profilePictureURL = URL(string: profilePictureStringUrl)
-        self.profilePictureURL = _profilePictureURL
+        let profilePicURL = URL(string: profilePictureStringUrl)
+        self.profilePictureURL = profilePicURL
     }
-    
+
     func configure(cell: UserInfoTableViewCell) {
         cell.fullNameLabel.text = fullName
         cell.profilePictureImageView.sd_imageTransition = .fade
         cell.profilePictureImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         cell.profilePictureImageView.sd_imageIndicator = SDWebImageProgressIndicator.`default`
-        cell.profilePictureImageView.sd_setImage(with: profilePictureURL, placeholderImage: UIImage(named: Constants.PROFILE_PICTURE_PLACEHOLDER))
+        cell.profilePictureImageView.sd_setImage(with: profilePictureURL,
+                                                 placeholderImage: UIImage(named: Constants.profilePicturePlaceholder))
     }
-    
+
 }

@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct LoginResponse : Codable {
+struct LoginResponse: Codable {
 
-    let ad : Ad?
-    let data : LoginData?
+    let adv: Advertisement?
+    let data: LoginData?
 
     enum CodingKeys: String, CodingKey {
-        case ad
+        case adv = "ad"
         case data
     }
 

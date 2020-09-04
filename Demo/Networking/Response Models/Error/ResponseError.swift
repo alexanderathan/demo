@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct ResponseError : Codable {
+struct ResponseError: Codable {
 
-    let error : String?
+    let error: String?
 
     enum CodingKeys: String, CodingKey {
-        case error = "error"
+        case error
     }
 
 }

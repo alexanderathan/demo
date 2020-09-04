@@ -21,17 +21,17 @@ class RegisterViewController: UIViewController {
         validateAndRegister()
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerTitleLabel.text = Constants.REGISTER_TITLE
-        registerDescriptionLabel.text = Constants.REGISTER_DESCRIPTION
-        usernameTextField.placeholder = Constants.USERNAME_PLACEHOLDER
-        passwordTextField.placeholder = Constants.PASSWORD_PLACEHOLDER
+        registerTitleLabel.text = Constants.registerTitle
+        registerDescriptionLabel.text = Constants.registerDescription
+        usernameTextField.placeholder = Constants.usernamePlaceholder
+        passwordTextField.placeholder = Constants.passwordPlaceholder
         passwordTextField.isSecureTextEntry = true
-        registerButton.setTitle(Constants.REGISTER_BUTTON_TITLE, for: .normal)
+        registerButton.setTitle(Constants.registerButtonTitle, for: .normal)
     }
-    
+
     // MARK: - Register Function
     func register(username: String, password: String) {
         registerButton.isEnabled = false
@@ -40,20 +40,23 @@ class RegisterViewController: UIViewController {
             self.registerButton.isEnabled = true
             self.activityIndicator.stopAnimating()
             // Make sure that the id exists before moving further
-            guard let _id = response.id else { return }
+            guard let userID = response.userID else { return }
             // Converting to string
-            let idString = String(_id)
-            // Posting a notification with the id string in the notification user info. This is received by ProfileViewController.
-            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NOTIFICATION_DID_RECEIVE_LOGIN_DATA), object: nil, userInfo: [Constants.NOTIFICATION_USER_INFO_KEY_ID: idString])
+            let idString = String(userID)
+            // Posting a notification with the id string in the notification user info.
+            // This is received by ProfileViewController.
+            NotificationCenter.default.post(name:
+                Notification.Name(rawValue: Constants.notificationDidReceiveLoginData),
+                                            object: nil, userInfo: [Constants.notificationUserInfoKeyID: idString])
             self.dismiss(animated: true, completion: nil)
         }, onFailure: { error, data in
             self.registerButton.isEnabled = true
             self.activityIndicator.stopAnimating()
             guard let errorText = ErrorHandler.handleErrors(error: error, data: data) else { return }
-            self.showMessage(title: Constants.MESSAGE_TITLE_ERROR, text: errorText)
+            self.showMessage(title: Constants.messageTitleError, text: errorText)
         })
     }
-    
+
     // MARK: - Validate Text Fields Function
     func validateAndRegister() {
         do {
@@ -62,9 +65,9 @@ class RegisterViewController: UIViewController {
             let password = try passwordTextField.validatedText(validationType: ValidatorType.password)
             //Use the validated username and password and attempt to register
             register(username: email, password: password)
-        } catch(let error) {
-            guard let _error = error as? ValidationError else { return }
-            showMessage(title: Constants.MESSAGE_TITLE_ERROR, text: _error.message)
+        } catch let error {
+            guard let error = error as? ValidationError else { return }
+            showMessage(title: Constants.messageTitleError, text: error.message)
         }
     }
 

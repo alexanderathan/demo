@@ -15,18 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         // MARK: - Networking Environment Settings
         //Networking path choice, here you could easily switch to a dev server or localhost
         TNEnvironment.set(Environment.production)
         //Comment this if you do not want networking/parsing details
         TNEnvironment.verbose = true
-        
+    
         // MARK: - Keyboard
         IQKeyboardManager.shared().isEnabled = true
         return true
     }
 
 }
-

@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Ad : Codable {
+struct Advertisement: Codable {
 
-    let company : String?
-    let text : String?
-    let url : String?
+    let company: String?
+    let text: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
-        case company = "company"
-        case text = "text"
-        case url = "url"
+        case company
+        case text
+        case url
     }
 
 }

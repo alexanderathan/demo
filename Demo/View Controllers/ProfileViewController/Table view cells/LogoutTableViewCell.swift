@@ -14,23 +14,19 @@ protocol LogoutTableViewCellDelegate: class {
 class LogoutTableViewCell: UITableViewCell {
 
     @IBOutlet weak var logoutButton: UIButton!
-    
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         guard let cellDelegate = delegate else { return }
         cellDelegate.didPressLogoutButton()
     }
-    
     weak var delegate: LogoutTableViewCellDelegate?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        logoutButton.setTitle(Constants.LOGOUT_BUTTON_TITLE, for: .normal)
+        logoutButton.setTitle(Constants.logoutButtonTitle, for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
 }

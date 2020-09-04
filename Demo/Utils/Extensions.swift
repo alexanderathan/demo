@@ -12,7 +12,7 @@ import SwiftMessages
 
 // MARK: - Notification names
 extension Notification.Name {
-    static let didReceiveLoginData = Notification.Name(Constants.NOTIFICATION_DID_RECEIVE_LOGIN_DATA)
+    static let didReceiveLoginData = Notification.Name(Constants.notificationDidReceiveLoginData)
 }
 
 // MARK: - TextField Validation

@@ -21,7 +21,7 @@
 		FA0ADA9424F9C72D0070CDBF /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADA9324F9C72D0070CDBF /* RegisterResponse.swift */; };
 		FA0ADA9A24F9C8700070CDBF /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADA9924F9C8700070CDBF /* LoginResponse.swift */; };
 		FA0ADA9D24FAE1AD0070CDBF /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADA9C24FAE1AD0070CDBF /* LoginData.swift */; };
-		FA0ADA9F24FAE1D50070CDBF /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADA9E24FAE1D50070CDBF /* Ad.swift */; };
+		FA0ADA9F24FAE1D50070CDBF /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADA9E24FAE1D50070CDBF /* Advertisement.swift */; };
 		FA0ADAA524FAFC430070CDBF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADAA324FAFC430070CDBF /* RegisterViewController.swift */; };
 		FA0ADAA824FAFEAB0070CDBF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0ADAA724FAFEAB0070CDBF /* Constants.swift */; };
 		FA3BB26D24FB1AFE009B66AF /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BB26C24FB1AFE009B66AF /* ResponseError.swift */; };
@@ -56,7 +56,7 @@
 		FA0ADA9324F9C72D0070CDBF /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		FA0ADA9924F9C8700070CDBF /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		FA0ADA9C24FAE1AD0070CDBF /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
-		FA0ADA9E24FAE1D50070CDBF /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		FA0ADA9E24FAE1D50070CDBF /* Advertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
 		FA0ADAA324FAFC430070CDBF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FA0ADAA724FAFEAB0070CDBF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA3BB26C24FB1AFE009B66AF /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 			children = (
 				FA0ADA9924F9C8700070CDBF /* LoginResponse.swift */,
 				FA0ADA9C24FAE1AD0070CDBF /* LoginData.swift */,
-				FA0ADA9E24FAE1D50070CDBF /* Ad.swift */,
+				FA0ADA9E24FAE1D50070CDBF /* Advertisement.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 			files = (
 				FA0ADA9124F99B7D0070CDBF /* HelperFunctions.swift in Sources */,
 				FA3E5A232500DEE50028DCE7 /* LogoutTableViewCell.swift in Sources */,
-				FA0ADA9F24FAE1D50070CDBF /* Ad.swift in Sources */,
+				FA0ADA9F24FAE1D50070CDBF /* Advertisement.swift in Sources */,
 				FA0ADA9D24FAE1AD0070CDBF /* LoginData.swift in Sources */,
 				FA0ADAA524FAFC430070CDBF /* RegisterViewController.swift in Sources */,
 				FA0ADA6E24F9803B0070CDBF /* AppDelegate.swift in Sources */,

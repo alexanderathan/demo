@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct RegisterResponse : Codable {
+struct RegisterResponse: Codable {
 
-    let id : Int?
-    let token : String?
+    let userID: Int?
+    let token: String?
 
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case token = "token"
+        case userID = "id"
+        case token
     }
 
 }

@@ -8,20 +8,19 @@
 
 import Foundation
 
-struct LoginData : Codable {
+struct LoginData: Codable {
 
     let avatar: String?
     let email: String?
     let firstName: String?
-    let id : Int?
+    let userID: Int?
     let lastName: String?
 
     enum CodingKeys: String, CodingKey {
-        
-        case avatar = "avatar"
-        case email = "email"
+        case avatar
+        case email
         case firstName = "first_name"
-        case id = "id"
+        case userID = "id"
         case lastName = "last_name"
     }
 

@@ -18,25 +18,26 @@ class ErrorHandler {
             debugPrint(statusCode)
             do {
                 guard let errorModel: ResponseError = try data?.deserializeJSONData() else {
-                    print(Constants.ERROR_UNABLE_TO_DESERIALIZE)
-                    return Constants.ERROR_UNABLE_TO_DESERIALIZE
+                    print(Constants.errorUnableToDeserialize)
+                    return Constants.errorUnableToDeserialize
                 }
-                let errorText = errorModel.error ?? Constants.ERROR_UNABLE_TO_DESERIALIZE
+                let errorText = errorModel.error ?? Constants.errorUnableToDeserialize
                 return errorText
             } catch {
-                print(Constants.ERROR_UNABLE_TO_DESERIALIZE)
-                return Constants.ERROR_UNABLE_TO_DESERIALIZE
+                print(Constants.errorUnableToDeserialize)
+                return Constants.errorUnableToDeserialize
             }
         case .networkError(let error):
-            let networkErrorString = [Constants.NETWORK_ERROR, error.localizedDescription].joined(separator: " ")
+            let networkErrorString = [Constants.networkError, error.localizedDescription].joined(separator: " ")
             debugPrint(networkErrorString)
             return networkErrorString
         case .cancelled(let error):
-            let cancelledErrorString = [Constants.REQUEST_CANCELED, error.localizedDescription].joined(separator: " ")
+            let cancelledErrorString = [Constants.requestCanceled, error.localizedDescription].joined(separator: " ")
             debugPrint(cancelledErrorString)
             return cancelledErrorString
-        case .cannotDeserialize(_):
-            let cannotDeserializeErrorString = [Constants.DESERIALIZATION_ERROR, error.localizedDescription].joined(separator: " ")
+        case .cannotDeserialize(let error):
+            let cannotDeserializeErrorString =
+                [Constants.deserializationError, error.localizedDescription].joined(separator: " ")
             debugPrint(cannotDeserializeErrorString)
             return cannotDeserializeErrorString
         default:
