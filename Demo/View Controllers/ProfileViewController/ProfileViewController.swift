@@ -114,7 +114,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Cell Logout Extension
 extension ProfileViewController: LogoutTableViewCellDelegate {
-    func didPressLogoutButton() {
+    func didPressLogoutButton(sender: LogoutTableViewCell) {
         let alert = UIAlertController(title: Constants.alertLogoutTitle,
                                       message: Constants.alertLogoutMessage, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: Constants.alertLogoutDefaultActionTitle,
@@ -128,6 +128,10 @@ extension ProfileViewController: LogoutTableViewCellDelegate {
             self.tableView.backgroundView = self.registerView
         }))
         alert.addAction(UIAlertAction(title: Constants.alertLogoutCancelActionTitle, style: .cancel, handler: nil))
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = sender
+            popoverController.sourceRect = sender.bounds
+        }
         self.present(alert, animated: true)
     }
 }

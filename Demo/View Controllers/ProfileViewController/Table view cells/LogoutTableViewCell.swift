@@ -9,14 +9,14 @@
 import UIKit
 
 protocol LogoutTableViewCellDelegate: class {
-    func didPressLogoutButton()
+    func didPressLogoutButton(sender: LogoutTableViewCell)
 }
 class LogoutTableViewCell: UITableViewCell {
 
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         guard let cellDelegate = delegate else { return }
-        cellDelegate.didPressLogoutButton()
+        cellDelegate.didPressLogoutButton(sender: self)
     }
     weak var delegate: LogoutTableViewCellDelegate?
     override func awakeFromNib() {
