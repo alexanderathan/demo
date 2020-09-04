@@ -8,4 +8,5 @@ target 'Demo' do
   pod 'IQKeyboardManager'
   pod 'SDWebImage'
   pod 'KeychainSwift', '~> 19.0'
+  pod 'SwiftMessages'
 end

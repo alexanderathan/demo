@@ -38,16 +38,12 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 150.0
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
-        
+        tableView.backgroundColor = UIColor.groupTableViewBackground
         registerView = RegisterButtonView(frame: tableView.frame)
         registerView?.delegate = self
         
         let isLoggedIn = keychain.getBool(Constants.KEYCHAIN_IS_LOGGED_IN) ?? false
-        
-        print(isLoggedIn)
-        if !isLoggedIn {
-            tableView.backgroundView = registerView
-        } else {
+        if isLoggedIn {
             guard let id = keychain.get(Constants.KEYCHAIN_USER_ID) else {
                 // Possible issue with the id in the keychain. Have to loggout user
                 keychain.set(false, forKey: Constants.KEYCHAIN_IS_LOGGED_IN)
@@ -56,7 +52,9 @@ class ProfileViewController: UIViewController {
                 return
                 
             }
-            login(userID: id)
+            login(userID: id, shouldShowSuccessMessage: false)
+        } else {
+            tableView.backgroundView = registerView
         }
         
     }
@@ -64,19 +62,22 @@ class ProfileViewController: UIViewController {
     // MARK: - Function to handle notification with user info ID
     @objc func didReceiveLoginData(_ notification: NSNotification) {
         guard let id = notification.userInfo?[Constants.NOTIFICATION_USER_INFO_KEY_ID] as? String else { return }
-        login(userID: id)
+        login(userID: id, shouldShowSuccessMessage: true)
     }
     
     // MARK: - Login function
-    func login(userID: String) {
+    func login(userID: String, shouldShowSuccessMessage: Bool) {
         loginHelper(id: userID, onSuccess: { response in
             self.keychain.set(true, forKey: Constants.KEYCHAIN_IS_LOGGED_IN)
             self.keychain.set(userID, forKey: Constants.KEYCHAIN_USER_ID)
             let profileViewModel = UserProfileViewModel(model: response)
             self.userProfile = profileViewModel
             self.tableView.backgroundView = UIView()
+            if shouldShowSuccessMessage {
+                self.showMessage(title: Constants.MESSAGE_TITLE_SUCCESS, text: Constants.MESSAGE_BODY_SUCCESS)
+            }
         }, onFailure: {error, data in
-            print(error.localizedDescription ?? "Undefined error")
+            print(error.localizedDescription ?? Constants.UNDEFINED_ERROR)
         })
     }
 
@@ -132,7 +133,11 @@ extension ProfileViewController: RegisterButtonViewDelegate {
     func didPressRegisterButton() {
         let storyBoard = UIStoryboard(name: Constants.STORYBOARD_NAME_MAIN, bundle: nil)
         guard let registerViewController = storyBoard.instantiateViewController(withIdentifier: Constants.REGISTER_VIEW_CONTROLLER_NIB_IDENTIFIER) as? RegisterViewController else { return }
-        presentAsStork(registerViewController)
+        if #available(iOS 13, *) {
+            present(registerViewController, animated: true, completion: nil)
+        } else {
+            presentAsStork(registerViewController)
+        }
     }
     
     

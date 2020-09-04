@@ -33,7 +33,7 @@ class RegisterButtonView: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("RegisterButtonView", owner: self, options: nil)
+        Bundle.main.loadNibNamed(Constants.REGISTER_BUTTON_VIEW_NIB_NAME, owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

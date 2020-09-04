@@ -37,13 +37,13 @@ class ValidationError: Error {
 
 struct EmailValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
-        guard !value.isEmpty else { throw ValidationError("Email is required") }
+        guard !value.isEmpty else { throw ValidationError(Constants.FORM_VALIDATION_ERROR_EMAIL_REQUIRED) }
         do {
-            if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                throw ValidationError("Invalid email Address")
+            if try NSRegularExpression(pattern: Constants.FORM_VALIDATION_EMAIL_REGEX, options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError(Constants.FORM_VALIDATION_ERROR_EMAIL_INVALID)
             }
         } catch {
-            throw ValidationError("Invalid email Address")
+            throw ValidationError(Constants.FORM_VALIDATION_ERROR_EMAIL_INVALID)
         }
         return value
     }
@@ -51,7 +51,7 @@ struct EmailValidator: ValidatorConvertible {
 
 struct PasswordValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
-        guard !value.isEmpty else {throw ValidationError("Password is required")}
+        guard !value.isEmpty else {throw ValidationError(Constants.FORM_VALIDATION_ERROR_PASSWORD_REQUIRED)}
 //        guard value.count >= 6 else { throw ValidationError("Password must have at least 6 characters") }
 //        do {
 //            if try NSRegularExpression(pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {

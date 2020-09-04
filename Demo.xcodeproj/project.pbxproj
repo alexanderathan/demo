@@ -126,11 +126,11 @@
 				FA0ADA8B24F9982D0070CDBF /* Networking */,
 				FA0ADAA024FAFBD20070CDBF /* View Controllers */,
 				FA0ADA6D24F9803B0070CDBF /* AppDelegate.swift */,
+				FA0ADAA724FAFEAB0070CDBF /* Constants.swift */,
 				FA0ADA7324F9803B0070CDBF /* Main.storyboard */,
 				FA0ADA7624F9803B0070CDBF /* Assets.xcassets */,
 				FA0ADA7824F9803B0070CDBF /* LaunchScreen.storyboard */,
 				FA0ADA7B24F9803B0070CDBF /* Info.plist */,
-				FA0ADAA724FAFEAB0070CDBF /* Constants.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -138,11 +138,11 @@
 		FA0ADA8B24F9982D0070CDBF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				FA0ADA9224F9C7160070CDBF /* Response Models */,
 				FA0ADA8C24F9983C0070CDBF /* Environment.swift */,
 				FA0ADA8E24F999640070CDBF /* APIRouter.swift */,
 				FA0ADA9024F99B7D0070CDBF /* HelperFunctions.swift */,
 				FA3BB26E24FB1BC7009B66AF /* ErrorHandler.swift */,
+				FA0ADA9224F9C7160070CDBF /* Response Models */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

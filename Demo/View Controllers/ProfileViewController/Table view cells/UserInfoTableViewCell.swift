@@ -15,6 +15,7 @@ class UserInfoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         profilePictureImageView.layer.cornerRadius = 8.0
         profilePictureImageView.clipsToBounds = true
     }

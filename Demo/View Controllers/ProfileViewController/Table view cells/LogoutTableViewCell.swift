@@ -24,6 +24,7 @@ class LogoutTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         logoutButton.setTitle(Constants.LOGOUT_BUTTON_TITLE, for: .normal)
     }
 

@@ -12,7 +12,6 @@ import TermiNetwork
 // MARK: - Register Helper Function
 func registerHelper(email: String, password: String, onSuccess: @escaping TNSuccessCallback<RegisterResponse>, onFailure: @escaping TNFailureCallback) {
     TNRouter.start(APIRouter.register(email: email, password: password), responseType: RegisterResponse.self, onSuccess: onSuccess) { (error, data) in
-        ErrorHandler.handleErrors(error: error, data: data)
         onFailure(error, data)
     }
 }
@@ -20,7 +19,6 @@ func registerHelper(email: String, password: String, onSuccess: @escaping TNSucc
 // MARK: - Login Helper Function
 func loginHelper(id: String, onSuccess: @escaping TNSuccessCallback<LoginResponse>, onFailure: @escaping TNFailureCallback) {
     TNRouter.start(APIRouter.login(id: id), responseType: LoginResponse.self, onSuccess: onSuccess) { (error, data) in
-        ErrorHandler.handleErrors(error: error, data: data)
         onFailure(error, data)
     }
 }
